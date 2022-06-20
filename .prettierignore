@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# Whitelist directories
+!*/
+
+node_modules/
