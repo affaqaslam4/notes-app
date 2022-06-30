@@ -1,0 +1,31 @@
+<mat-card class="notes-board-header">
+    <mat-form-field appearance="fill">
+        <mat-label>Filter by label</mat-label>
+        <mat-select [(ngModel)]="selectedLabelId">
+            <mat-option [value]="-1">All</mat-option>
+            <mat-option *ngFor="let label of labels" [value]="label.id">
+                {{ label.text }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="week-switcher">
+        <button
+            mat-fab
+            color="primary"
+            [disabled]="minWeekNumber === currentWeekNumber"
+            (click)="decrementWeek()"
+        >
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <div class="week-text">{{ currentWeekLabel }}</div>
+        <button
+            mat-fab
+            color="primary"
+            [disabled]="maxWeekNumber === currentWeekNumber"
+            (click)="incrementWeek()"
+        >
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+</mat-card>

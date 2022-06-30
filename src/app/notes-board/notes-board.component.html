@@ -1,0 +1,15 @@
+<mat-progress-bar mode="indeterminate" *ngIf="!isLoaded"></mat-progress-bar>
+
+<div class="container main-container" *ngIf="isLoaded">
+    <app-notes-board-header
+        [minWeekNumber]="minWeekNumber"
+        [maxWeekNumber]="maxWeekNumber"
+        [labels]="noteLabelDtos"
+        (onCurrentWeekChange)="currentWeekChanges($event)"
+    ></app-notes-board-header>
+    <app-notes-board-body
+        class="notes-body"
+        [noteLabels]="noteLabels"
+        [currentWeekNumber]="currentWeekNumber"
+    ></app-notes-board-body>
+</div>

@@ -1,0 +1,15 @@
+.notes-board-header {
+    display: flex;
+    justify-content: space-between;
+
+    .week-switcher {
+        display: flex;
+        gap: 10px;
+        align-items: baseline;
+
+        .week-text{
+            font-size: 18px;
+            font-weight: 500;
+        }
+    }
+}

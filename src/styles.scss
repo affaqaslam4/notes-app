@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+    overflow: hidden;
+    height: 100%;
+}
+
+.container {
+    height: 100%;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+}
+
+.fill-height {
+    height: 100%;
+}
+
+.fill-width {
+    width: 100%;
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+.light-mode {
+    background: #fafafa;
+}
+
+.hidden {
+    display: none;
+}
+
+.v-hidden {
+    visibility: hidden;
+}
+
+*{
+    box-sizing: border-box;
+}
