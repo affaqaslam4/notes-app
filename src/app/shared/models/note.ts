@@ -17,8 +17,8 @@ export class Note {
         this.summary = note.summary;
         this.labels = note.labels;
         this.startDate = moment.unix(note.startDate);
-        this.startDateFormatted = this.startDate.format("DD.MM.");
+        this.startDateFormatted = this.startDate.format('DD.MM.');
         this.endDate = moment.unix(note.endDate);
-        this.duration = this.startDate.diff(this.endDate) + 1;
+        this.duration = this.startDate.diff(this.endDate, 'days') + 1;
     }
 }

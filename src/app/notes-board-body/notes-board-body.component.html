@@ -1,292 +1,57 @@
-<mat-card class="columns">
-    <div class="day-headers">
-        <div class="day-header v-hidden"></div>
-        <div class="day-header">
-            {{ getWeekDateByDay("Monday") }}
-        </div>
-        <div class="day-header">
-            {{ getWeekDateByDay("Tuesday") }}
-        </div>
-        <div class="day-header">
-            {{ getWeekDateByDay("Wednesday") }}
-        </div>
-        <div class="day-header">
-            {{ getWeekDateByDay("Thursday") }}
-        </div>
-        <div class="day-header">
-            {{ getWeekDateByDay("Friday") }}
-        </div>
-    </div>
-
-    <div class="notes-labels-container">
-        <div class="notes-label-row">
-            <div class="notes-label-title">
-                {{ "Frontend" }}
+<div class="content">
+    <mat-card class="columns">
+        <div class="day-headers">
+            <div class="day-header item label-header"></div>
+            <div class="day-header item borders">
+                {{ getWeekDateByDay("Monday") }}
             </div>
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
+            <div class="day-header item borders">
+                {{ getWeekDateByDay("Tuesday") }}
             </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
+            <div class="day-header item borders">
+                {{ getWeekDateByDay("Wednesday") }}
             </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
+            <div class="day-header item borders">
+                {{ getWeekDateByDay("Thursday") }}
             </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
-            </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
+            <div class="day-header item borders">
+                {{ getWeekDateByDay("Friday") }}
             </div>
         </div>
 
-        <div class="notes-label-row">
-            <div class="notes-label-title">
-                {{ "Backend" }}
-            </div>
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
+        <div class="notes-labels-container">
+            <div class="notes-label-row" *ngFor="let noteLabel of noteLabels">
+                <div class="notes-label-title item">
+                    {{ noteLabel.text }}
+                </div>
+                <!-- Stacked notes classes goes here: stacked-notes -->
+                <div
+                    class="note-cell item"
+                    *ngFor="
+                        let dayNotes of noteLabel.notesByWeekNumber;
+                        let i = index
+                    "
+                >
+                    <mat-card
+                        class="note"
+                        [ngClass]="getOverlappingClassForNote(note, i + 1)"
+                        *ngFor="let note of dayNotes"
                     >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
-            </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
-            </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
-            </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
-            </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
+                        <!-- Add these class for overlapping overlap-div-4 -->
+                        <div class="title">
+                            <span class="number-tag">{{ note.id }}</span>
+                            {{ note.title }}
+                        </div>
+                        <div class="summary">
+                            {{ note.summary }}
+                        </div>
+                        <div class="time">
+                            <div>StartDate: {{ note.startDateFormatted }}</div>
+                            <div>Duration: {{ note.duration }} day(s)</div>
+                        </div>
+                    </mat-card>
+                </div>
             </div>
         </div>
-
-        <div class="notes-label-row">
-            <div class="notes-label-title">
-                {{ "Database" }}
-            </div>
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
-            </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
-            </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
-            </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
-            </div>
-
-            <div class="note-cell">
-                <mat-card class="note">
-                    <div class="title" matTooltip="workflowItem.title">
-                        {{ "workflowItem.title" }}
-                    </div>
-                    <div
-                        class="summary"
-                        matTooltip="workflowItem.subtitle"
-                        matTooltipPosition="right"
-                        matTooltipShowDelay="500"
-                        matTooltipHideDelay="0"
-                    >
-                        {{ "workflowItem.subtitle" }}
-                    </div>
-                </mat-card>
-            </div>
-        </div>
-    </div>
-</mat-card>
+    </mat-card>
+</div>

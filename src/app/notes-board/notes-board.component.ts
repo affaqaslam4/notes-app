@@ -19,8 +19,8 @@ export class NotesBoardComponent implements OnInit {
     public currentWeekNumber: number;
     public isLoaded = false;
 
-    public minWeekNumber: number = 1;
-    public maxWeekNumber: number = 1;
+    public minWeekNumber: number = 1000;
+    public maxWeekNumber: number = 1000;
 
     public constructor(private dataService: DataService) {}
 
@@ -60,6 +60,7 @@ export class NotesBoardComponent implements OnInit {
         );
 
         this.currentWeekNumber = this.minWeekNumber;
+
         this.isLoaded = true;
     }
 

@@ -1,11 +1,12 @@
 .notes-board-header {
     display: flex;
-    justify-content: space-between;
 
     .week-switcher {
         display: flex;
+        width: calc(100% - 402px);
         gap: 10px;
         align-items: baseline;
+        justify-content: center;
 
         .week-text{
             font-size: 18px;
