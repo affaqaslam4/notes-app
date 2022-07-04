@@ -5,7 +5,6 @@ import { INoteLabelDto } from '../shared/dtos/inote-label-dto';
 import { INoteDto } from '../shared/dtos/inote-dto';
 import { NoteLabel } from '../shared/models/note-label';
 import { INotesGetResponseDto } from './dtos/inotes-get-response-dto';
-import * as moment from 'moment';
 
 @Component({
     selector: 'app-notes-board',
@@ -17,10 +16,11 @@ export class NotesBoardComponent implements OnInit {
     public notesDtos: INoteDto[];
     public noteLabels: NoteLabel[];
     public currentWeekNumber: number;
+    public labelId: number = -1;
     public isLoaded = false;
 
     public minWeekNumber: number = 1000;
-    public maxWeekNumber: number = 1000;
+    public maxWeekNumber: number = 0;
 
     public constructor(private dataService: DataService) {}
 
@@ -66,5 +66,9 @@ export class NotesBoardComponent implements OnInit {
 
     public currentWeekChanges(currentWeekNumber: number): void {
         this.currentWeekNumber = currentWeekNumber;
+    }
+
+    public onLabelChange(labelId: number): void {
+        this.labelId = labelId;
     }
 }

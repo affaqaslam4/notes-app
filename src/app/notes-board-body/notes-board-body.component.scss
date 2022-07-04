@@ -1,212 +1,173 @@
-.overlap-div-2 {
-    z-index: 1;
-    width: calc(#{2 * 100}% + 21px);
-}
-
-.overlap-div-3 {
-    z-index: 1;
-    width: calc(#{3 * 100}% + 43px);
-}
-
-.overlap-div-4 {
-    z-index: 1;
-    width: calc(#{4 * 100}% + 63px);
-}
-
-.overlap-div-5 {
-    z-index: 1;
-    width: calc(#{5 * 100}% + 83px);
-}
-
-.content {
-    display: flex;
-    justify-content: center;
-    background-color: #ffffff;
-    height: 100%;
-}
-
-.columns {
-    box-shadow: none;
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-    height: calc(100% - 31px);
-
-    .item {
-        min-width: 280px;
-        width: 280px;
-
-        padding: 10px;
-        position: relative;
-    }
-
-    .label-header,
-    .notes-label-title {
-        min-width: 100px;
-        width: 100px;
-    }
-
-    .notes-label-title {
+:host {
+    .content {
         display: flex;
-        align-items: center;
+        justify-content: center;
+        background-color: #ffffff;
+        height: 100%;
     }
 
-    .day-headers {
-        display: flex;
-    }
-
-    .day-header {
-        &:nth-child(n + 2) {
-            border-right: 0;
-            border-bottom: 0;
-        }
-        &:last-child {
-            border-right: 1px solid #000000;
-        }
-    }
-
-    .notes-label-row {
-        display: flex;
-    }
-
-    .notes-labels-container {
+    .columns {
+        box-shadow: none;
         display: flex;
         flex-direction: column;
-    }
+        overflow: auto;
+        height: calc(100% - 31px);
 
-    .borders {
-        border: 1px solid #000000;
-    }
+        .item {
+            min-width: 280px;
+            width: 280px;
 
-    .note-cell {
-        &.item {
+            padding: 10px;
+            position: relative;
+        }
+
+        .label-header,
+        .notes-label-title {
+            min-width: 100px;
+            width: 100px;
+        }
+
+        .notes-label-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .day-headers {
+            display: flex;
+        }
+
+        .day-header {
+            &:nth-child(n + 2) {
+                border-right: 0;
+                border-bottom: 0;
+            }
+            &:last-child {
+                border-right: 1px solid #000000;
+            }
+        }
+
+        .notes-label-row {
+            display: flex;
+        }
+
+        .notes-labels-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .borders {
             border: 1px solid #000000;
         }
 
-        .note {
-            height: 100%;
+        .note-cell {
+            &.item {
+                border: 1px solid #000000;
+            }
+        }
 
-            &:hover {
-                cursor: pointer;
-                @media (max-width: 1680px) {
-                    .summary {
-                        overflow: unset;
-                        text-overflow: unset;
-                        display: block;
-                        -webkit-line-clamp: unset;
-                        -webkit-box-orient: unset;
+        .notes-label-row {
+            &:not(:last-child) {
+                .note-cell {
+                    &:nth-child(n + 2) {
+                        border-right: 0;
+                        border-bottom: 0;
+                    }
+                    &:last-child {
+                        border-right: 1px solid #000000;
+                    }
+                }
+            }
+
+            &:last-child {
+                .note-cell {
+                    &:nth-child(n + 2) {
+                        border-right: 0;
+                    }
+                    &:last-child {
+                        border-right: 1px solid #000000;
                     }
                 }
             }
         }
-    }
 
-    .notes-label-row {
-        &:not(:last-child) {
-            .note-cell {
-                &:nth-child(n + 2) {
-                    border-right: 0;
-                    border-bottom: 0;
-                }
-                &:last-child {
-                    border-right: 1px solid #000000;
+        .stacked-notes {
+            position: relative;
+
+            ::ng-deep {
+                app-notes-card {
+                    &:nth-child(1) {
+                        .note {
+                            position: absolute;
+                            height: calc(100% - 20px);
+                            width: calc(100% - 20px);
+                            z-index: 1;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+
+                            button {
+                                display: none;
+                            }
+                        }
+                    }
+                    &:nth-child(2) {
+                        .note {
+                            position: absolute;
+                            height: calc(100% - 40px);
+                            width: calc(100% - 40px);
+                            z-index: 2;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+
+                            button {
+                                display: none;
+                            }
+                        }
+                    }
+                    &:nth-child(3) {
+                        .note {
+                            position: absolute;
+                            height: calc(100% - 60px);
+                            width: calc(100% - 60px);
+                            z-index: 3;
+                            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+                                rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+
+                            button {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    &:last-child {
+                        .note {
+                            &:hover {
+                                cursor: pointer;
+                                box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+                                    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                                    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+                                    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+                                    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+                            }
+
+                            button {
+                                display: block;
+                            }
+                        }
+                    }
                 }
             }
         }
-
-        &:last-child {
-            .note-cell {
-                &:nth-child(n + 2) {
-                    border-right: 0;
-                }
-                &:last-child {
-                    border-right: 1px solid #000000;
-                }
-            }
-        }
-    }
-
-    .stacked-notes {
-        position: relative;
-
-        .note {
-            &:nth-child(1) {
-                position: absolute;
-                height: calc(100% - 20px);
-                width: calc(100% - 20px);
-                z-index: 1;
-                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            &:nth-child(2) {
-                position: absolute;
-                height: calc(100% - 40px);
-                width: calc(100% - 40px);
-                z-index: 2;
-                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            &:nth-child(3) {
-                position: absolute;
-                height: calc(100% - 60px);
-                width: calc(100% - 60px);
-                z-index: 3;
-                box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            &.highlight {
-                &:hover {
-                    cursor: pointer;
-                    background-color: #edf0ff;
-                }
-            }
-        }
-    }
-
-    .summary {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-    }
-
-    .time {
-        display: none;
-
-        @media (min-width: 1680px) {
-            margin-top: 10px;
-            display: block;
-        }
-    }
-
-    .title {
-        font-weight: bold;
-        font-size: 18px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .number-tag {
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 25px;
-        min-width: 25px;
-        font-size: 14px;
-        font-weight: normal;
-        background-color: #bbb;
-        border-radius: 50%;
     }
 }

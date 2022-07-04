@@ -19,6 +19,27 @@ export class Note {
         this.startDate = moment.unix(note.startDate);
         this.startDateFormatted = this.startDate.format('DD.MM.');
         this.endDate = moment.unix(note.endDate);
-        this.duration = this.startDate.diff(this.endDate, 'days') + 1;
+        this.duration = Math.abs(this.startDate.diff(this.endDate, 'days'));
+        this.duration =
+            this.duration -
+            this.excludeWeekendsFromDiff(this.startDate, this.duration) +
+            1;
+    }
+
+    private excludeWeekendsFromDiff(
+        startDate: moment.Moment,
+        duration: number
+    ): number {
+        const date = moment(startDate);
+        let toDeduct = 0;
+        for (let i = 1; i <= duration; i++) {
+            date.add(1, 'days');
+
+            if (date.day() === 6 || date.day() === 0) {
+                toDeduct++;
+            }
+        }
+
+        return toDeduct;
     }
 }

@@ -1,1 +1,20 @@
-<p>notes-card works!</p>
+<mat-card
+    class="note"
+    (click)="editNote()"
+    [ngClass]="getOverlappingClassForNote()"
+>
+    <div class="title">
+        <span class="number-tag">{{ note.id }}</span>
+        <span class="text">{{ note.title }}</span>
+        <button mat-icon-button color="warn" (click)="deleteNote($event)">
+            <mat-icon>delete</mat-icon>
+        </button>
+    </div>
+    <div class="summary">
+        {{ note.summary }}
+    </div>
+    <div class="time">
+        <div>StartDate: {{ note.startDateFormatted }}</div>
+        <div>Duration: {{ note.duration }} day(s)</div>
+    </div>
+</mat-card>

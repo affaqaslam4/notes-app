@@ -6,10 +6,12 @@
         [maxWeekNumber]="maxWeekNumber"
         [labels]="noteLabelDtos"
         (onCurrentWeekChange)="currentWeekChanges($event)"
+        (onLabelChange)="onLabelChange($event)"
     ></app-notes-board-header>
     <app-notes-board-body
         class="notes-body"
         [noteLabels]="noteLabels"
         [currentWeekNumber]="currentWeekNumber"
+        [labelId]="labelId"
     ></app-notes-board-body>
 </div>

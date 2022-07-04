@@ -1,7 +1,10 @@
 <mat-card class="notes-board-header">
     <mat-form-field appearance="fill">
         <mat-label>Filter by label</mat-label>
-        <mat-select [(ngModel)]="selectedLabelId">
+        <mat-select
+            [(ngModel)]="selectedLabelId"
+            (ngModelChange)="onFilterLabelChange()"
+        >
             <mat-option [value]="-1">All</mat-option>
             <mat-option *ngFor="let label of labels" [value]="label.id">
                 {{ label.text }}

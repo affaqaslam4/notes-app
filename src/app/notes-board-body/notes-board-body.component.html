@@ -20,36 +20,28 @@
         </div>
 
         <div class="notes-labels-container">
-            <div class="notes-label-row" *ngFor="let noteLabel of noteLabels">
+            <div
+                class="notes-label-row"
+                *ngFor="let noteLabel of visibleLabels"
+            >
                 <div class="notes-label-title item">
                     {{ noteLabel.text }}
                 </div>
-                <!-- Stacked notes classes goes here: stacked-notes -->
                 <div
                     class="note-cell item"
+                    [ngClass]="{ 'stacked-notes': dayNotes.length > 1 }"
                     *ngFor="
                         let dayNotes of noteLabel.notesByWeekNumber;
                         let i = index
                     "
                 >
-                    <mat-card
-                        class="note"
-                        [ngClass]="getOverlappingClassForNote(note, i + 1)"
-                        *ngFor="let note of dayNotes"
-                    >
-                        <!-- Add these class for overlapping overlap-div-4 -->
-                        <div class="title">
-                            <span class="number-tag">{{ note.id }}</span>
-                            {{ note.title }}
-                        </div>
-                        <div class="summary">
-                            {{ note.summary }}
-                        </div>
-                        <div class="time">
-                            <div>StartDate: {{ note.startDateFormatted }}</div>
-                            <div>Duration: {{ note.duration }} day(s)</div>
-                        </div>
-                    </mat-card>
+                    <app-notes-card
+                        *ngFor="let note of dayNotes; let noteIndex = index"
+                        [note]="note"
+                        [currentWeekNumber]="currentWeekNumber"
+                        [weekDay]="i + 1"
+                        (onDeleteNote)="onDeleteNote(noteLabel, note, i)"
+                    ></app-notes-card>
                 </div>
             </div>
         </div>

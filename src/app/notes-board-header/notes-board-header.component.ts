@@ -13,6 +13,7 @@ export class NotesBoardHeaderComponent implements OnInit {
     @Input() public labels: INoteLabelDto[];
 
     @Output() public onCurrentWeekChange = new EventEmitter<number>();
+    @Output() public onLabelChange = new EventEmitter<number>();
 
     public currentWeekNumber: number;
     public selectedLabelId = -1;
@@ -39,5 +40,9 @@ export class NotesBoardHeaderComponent implements OnInit {
     public incrementWeek(): void {
         this.currentWeekNumber++;
         this.onCurrentWeekChange.emit(this.currentWeekNumber);
+    }
+
+    public onFilterLabelChange(): void {
+        this.onLabelChange.emit(this.selectedLabelId);
     }
 }
