@@ -1,7 +1,6 @@
 :host {
     .content {
         display: flex;
-        justify-content: center;
         background-color: #ffffff;
         height: 100%;
     }
@@ -11,20 +10,25 @@
         display: flex;
         flex-direction: column;
         overflow: auto;
+        flex: 1 1 auto;
         height: calc(100% - 31px);
 
-        .item {
-            min-width: 280px;
-            width: 280px;
+        .day-header {
+            min-width: 158px;
+            flex: 1 1 0px;
 
             padding: 10px;
             position: relative;
         }
 
-        .label-header,
-        .notes-label-title {
-            min-width: 100px;
-            width: 100px;
+        .item {
+            min-width: 158px;
+            flex: 1 1 0px;
+
+            min-height: 190px;
+
+            padding: 10px;
+            position: relative;
         }
 
         .notes-label-title {
@@ -48,11 +52,13 @@
 
         .notes-label-row {
             display: flex;
+            flex: 1 1 0px;
         }
 
         .notes-labels-container {
             display: flex;
             flex-direction: column;
+            flex: 1 1 auto;
         }
 
         .borders {
