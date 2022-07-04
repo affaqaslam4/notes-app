@@ -1,5 +1,6 @@
 .notes-board-header {
     display: flex;
+    background: #fafafa;
 
     .week-switcher {
         display: flex;
@@ -8,7 +9,7 @@
         align-items: baseline;
         justify-content: center;
 
-        .week-text{
+        .week-text {
             font-size: 18px;
             font-weight: 500;
         }

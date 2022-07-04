@@ -7,9 +7,9 @@ import {
     EventEmitter,
 } from '@angular/core';
 import * as moment from 'moment';
-import { NoteLabel } from '../shared/models/note-label';
-import { Note } from '../shared/models/note';
-import { INoteDto } from '../shared/dtos/inote-dto';
+import { NoteLabel } from '../../shared/models/note-label';
+import { Note } from '../../shared/models/note';
+import { INoteDto } from '../../shared/dtos/inote-dto';
 
 @Component({
     selector: 'app-notes-board-body',

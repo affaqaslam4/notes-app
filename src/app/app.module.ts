@@ -2,11 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NotesBoardComponent } from './notes-board/notes-board.component';
-import { NotesBoardHeaderComponent } from './notes-board-header/notes-board-header.component';
-import { NotesBoardBodyComponent } from './notes-board-body/notes-board-body.component';
-import { UpdateNotesDialogComponent } from './update-notes-dialog/update-notes-dialog.component';
-import { NotesCardComponent } from './notes-card/notes-card.component';
+import { NotesBoardBodyComponent } from './components/notes-board-body/notes-board-body.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -25,6 +21,9 @@ import {
     MatMomentDateModule,
 } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
+import { NotesBoardComponent } from './components/notes-board/notes-board.component';
+import { NotesBoardHeaderComponent } from './components/notes-board-header/notes-board-header.component';
+import { NotesCardComponent } from './components/notes-card/notes-card.component';
 
 @NgModule({
     declarations: [
@@ -32,7 +31,6 @@ import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
         NotesBoardComponent,
         NotesBoardHeaderComponent,
         NotesBoardBodyComponent,
-        UpdateNotesDialogComponent,
         NotesCardComponent,
         EditNoteDialogComponent,
     ],

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as moment from 'moment';
-import { INoteLabelDto } from '../shared/dtos/inote-label-dto';
+import { INoteLabelDto } from 'src/app/shared/dtos/inote-label-dto';
 
 @Component({
     selector: 'app-notes-board-header',

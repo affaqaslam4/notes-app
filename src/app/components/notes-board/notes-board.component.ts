@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { forkJoin, map, switchMap } from 'rxjs';
-import { DataService } from '../core/services/data-service';
-import { INoteLabelDto } from '../shared/dtos/inote-label-dto';
-import { INoteDto } from '../shared/dtos/inote-dto';
-import { NoteLabel } from '../shared/models/note-label';
+import { forkJoin } from 'rxjs';
+import { DataService } from 'src/app/core/services/data-service';
+import { INoteDto } from 'src/app/shared/dtos/inote-dto';
+import { INoteLabelDto } from 'src/app/shared/dtos/inote-label-dto';
+import { NoteLabel } from 'src/app/shared/models/note-label';
 import { INotesGetResponseDto } from './dtos/inotes-get-response-dto';
 
 @Component({

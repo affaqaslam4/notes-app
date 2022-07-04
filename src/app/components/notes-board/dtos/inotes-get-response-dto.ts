@@ -1,4 +1,5 @@
-import { INoteDto } from '../../shared/dtos/inote-dto';
+import { INoteDto } from 'src/app/shared/dtos/inote-dto';
+
 export interface INotesGetResponseDto {
     notes: INoteDto[];
 }

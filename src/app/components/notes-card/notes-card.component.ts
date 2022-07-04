@@ -1,10 +1,10 @@
 import { WeekDay } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import * as moment from 'moment';
-import { Note } from '../shared/models/note';
-import { INoteDto } from '../shared/dtos/inote-dto';
 import { MatDialog } from '@angular/material/dialog';
-import { EditNoteDialogComponent } from '../components/edit-note-dialog/edit-note-dialog.component';
+import { INoteDto } from 'src/app/shared/dtos/inote-dto';
+import { Note } from 'src/app/shared/models/note';
+import { EditNoteDialogComponent } from '../edit-note-dialog/edit-note-dialog.component';
 
 @Component({
     selector: 'app-notes-card',
